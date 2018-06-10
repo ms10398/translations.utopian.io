@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="icon" type="image/png" href="/logo.png">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -53,6 +53,107 @@
 
     .topnav .icon {
       display: none;
+    }
+
+    .footerlink:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    .footerlink:hover:before {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+
+    p {
+      font-family: 'Lato', sans-serif !important;
+    }
+
+    @keyframes blink {
+      0% {
+        color: red;
+      }
+      100% {
+        color: black;
+      }
+    }
+
+    @-webkit-keyframes blink {
+      0% {
+        color: red;
+      }
+      100% {
+        color: black;
+      }
+    }
+
+    .blink {
+      -webkit-animation: blink 1s linear infinite;
+      -moz-animation: blink 1s linear infinite;
+      animation: blink 1s linear infinite;
+    }
+
+    .collab {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-grow: 1;
+      flex-basis: 100%;
+      margin-top: 10%;
+    }
+
+    .collab div {
+      min-width: 307px;
+    }
+
+    .divide {
+      height: 100px;
+      margin: auto 5px;
+      width: 0.2px;
+      border: 0.7px solid #039be5;
+    }
+
+    @media screen and (max-width: 600px) {
+      .footer-cols {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .footerlink {
+      color: #7583a5 !important;
+      font-size: 16px;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .footerlink:hover {
+      color: #fff;
+    }
+
+    @media screen and (max-width: 700px) {
+      .collab {
+        flex-direction: column;
+      }
+      .divide {
+        height: 0.5px;
+        margin: auto 5px;
+        width: 200px;
+        border: 0.7px solid #039be5;
+      }
     }
 
     @media screen and (max-width: 890px) {
@@ -109,56 +210,13 @@
         float: none;
       }
     }
-
-    @media screen and (max-width: 600px) {
-      .footer-cols {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-
-    .footerlink {
-      color: #7583a5 !important;
-      font-size: 16px;
-      position: relative;
-      text-decoration: none;
-    }
-
-    .footerlink:hover {
-      color: #fff;
-    }
-
-    .footerlink:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.3s ease-in-out 0s;
-      transition: all 0.3s ease-in-out 0s;
-    }
-
-    .footerlink:hover:before {
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
-
-    p {
-      font-family: 'Lato', sans-serif !important;
-    }
   </style>
 </head>
 
 <body>
   <div class="topnav" id="myTopnav">
     <img src="/logo.png" style="width: 32px;height:25px; float: left; margin-left: 15px; margin-right: -5px; margin-top: 12px;" class="" alt="Logo">
-    <a href="/"><b style="font-size: 16px;font-family: 'Lato', sans-serif !important;font-weight: 900;letter-spacing: 3px;white-space: nowrap"> UTOPIAN </b></a>
+    <a href="/"><b style="font-size: 16px;font-family: 'Lato', sans-serif !important;font-weight: 900;letter-spacing: 3px;white-space: nowrap"> UTOPIAN</b></a>
     <ul>
       <li><a href="https://signup.utopian.io/" style="float: right; margin-left: 8px; font-family: 'Noto Sans', sans-serif !important;margin-right: 10px; letter-spacing: 1px; font-weight: 600; font-size: 15px;">Sign Up</a>
       </li>
@@ -177,14 +235,30 @@
   </div>
   <main class="container">
 
-  <center>
-    <h3 style="font-family: 'Lato', sans-serif !important;">Login now to publish a post for Utopian!</h3>
-  </center>
-  <center>
-    <a href="/auth" class="button">Login</a>
-  </center>
-</main>
-<div id="footer" class="text-light" style="background: #24292e;">
+    <center>
+      <h3 style="font-family: 'Lato', sans-serif !important;">Translate Awesome Open Source Projects!</h3>
+    </center>
+    <center>
+      <a href="/auth" class="button">Login</a>
+      <p>By clicking on “Login” you agree to have read and accepted our <a href=https://join.utopian.io/privacy target="_blank">Privacy Policy</a> and <a href=https://join.utopian.io/tos target="_blank">Terms of Service</a>.</p>
+      <div class="collab">
+        <div style="text-align: left;margin-right:auto;max-width:500px">
+          <h4>Get in Touch!</h4>
+          <p>If you are willing to provide awesome translations for Open Source projects, get in touch with us on <a href=https://discord.gg/vMGmDSm target=“_blank”>Discord</a></p>
+        </div>
+        <hr class="divide">
+        <div>
+          <span style="color:black; font-size:28px;"><img src="/logo.png" alt="Utopian logo">
+        &nbsp;
+          <span style="font-size:80px;color:red;" class="blink">&hearts;</span> &nbsp;
+          <img src="/image.png" style="height:70px;width:140px;" alt="Davinci Logo">
+          </span>
+        </div>
+      </div>
+
+    </center>
+  </main>
+  <div id="footer" class="text-light" style="background: #24292e;">
     <div class="container">
       <h2 style="letter-spacing: 1px; color: white; font-weight: 500; line-height: 1.2; font-size: 32px; font-family: 'Lato', sans-serif !important; margin-bottom: 15px; margin-top: 50px;">Let's make Open Source Economy a reality. Together.</h2>
       <hr style="width: 35px; border: 1px solid #4786ff; margin-left: 0; margin-bottom: 35px">
@@ -203,6 +277,12 @@
         </div>
         <div class="col" style="width: 78%">
           <ul class="nav" style="display: flex">
+            <li class="nav-item">
+              <a class="nav-link footerlink" href="https://join.utopian.io/privacy">Privacy Policy</a> <span style="color: white; font-size: 12px">&nbsp;|&nbsp;</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link footerlink" href="https://join.utopian.io/tos">Terms of Service</a> <span style="color: white; font-size: 12px">&nbsp;|&nbsp;</span>
+            </li>
             <li class="nav-item">
               <a class="nav-link footerlink" href="https://join.utopian.io/cookies">Cookie Policy</a> <span style="color: white; font-size: 12px">&nbsp;|&nbsp;</span>
             </li>

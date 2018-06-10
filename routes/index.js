@@ -19,14 +19,19 @@ router.post('/vote', util.isMod, async function(req, res, next) {
   let author = req.session.steemconnect.name
   let title = req.body.title
   let tags = req.body.tags
-  let permlink = title.replace(/ /g,'-')
+  let permlink = title.replace(/ /g, '-')
   permlink = permlink.toLowerCase()
   console.log(permlink);
   let primaryTag = 'utopian-io'
   let ben = [{
-    'account': 'utopian.pay',
-    'weight': 500
-  }]
+      'account': 'utopian.pay',
+      'weight': 1500
+    },
+    {
+      'account': 'davinci.pay',
+      'weight': 4500
+    }
+  ]
   tags = tags.split(' ')
   tags.splice(3)
   let otherTags = ['translation', ...tags]
